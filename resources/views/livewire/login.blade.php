@@ -12,7 +12,7 @@
                 </div>
             @endif
                 <div class="card-header">{{ __('Login') }}
-                
+
                 </div>
 
                 <div class="card-body">

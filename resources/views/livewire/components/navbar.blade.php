@@ -8,8 +8,14 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         </ul>
         <form class="d-flex">
-          <a href="/login" class="nav-link me-4">Login</a>
-          <a href="/register" class="nav-link">Register</a>
+            @auth
+               <a class="nav-link me-4" >Welecome, {{ Auth::user()->name }}</a>
+               <a href="#" class="nav-link me-4" wire:click="userLogout">Logout</a>
+               @else
+               <a href="/login" class="nav-link me-4">Login</a>
+               <a href="/register" class="nav-link">Register</a>
+            @endauth
+
         </form>
       </div>
     </div>
