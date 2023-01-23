@@ -16,7 +16,7 @@ class CheckuserLohin
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->expectsJson()) {
+        if ($request->user()) {
             return redirect(route('home'));
         }
 

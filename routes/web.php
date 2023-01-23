@@ -10,7 +10,7 @@ Route::group(['middleware'=>'auth'],function () {
     Route::get('/', Home::class)->name('home');
 });
 
-Route::group(['check_user_login'=>'auth'],function () {
+Route::group(['middleware'=>'check_user_login'],function () {
     Route::get('/login', Login::class)->name('login');
     Route::get('/register', Register::class);
 });

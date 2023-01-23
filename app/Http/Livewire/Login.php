@@ -25,14 +25,17 @@ class Login extends Component
 
        if(Auth::attempt(['email'=>$this->email,'password'=>$this->password])){
         session()->flash('message', 'User succefully login 😃');
+        $this->email="";
+        $this->password="";
         return redirect()->route('home');
        }else{
+        $this->password="";
         session()->flash('message_error', 'Email or password worng 😇');
         return redirect()->route('login');
        }
     }
 
-   
+
 
 
     public function render()
