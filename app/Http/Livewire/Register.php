@@ -4,13 +4,22 @@ namespace App\Http\Livewire;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
-
+use RealRashid\SweetAlert\Facades\Alert;
 class Register extends Component
 {
     public $name;
     public $email;
     public $password;
     public $password_confirmation;
+
+    
+    public function render()
+    {
+        return view('livewire.register');
+    }
+
+
+
 
     // validation 
 
@@ -32,12 +41,9 @@ class Register extends Component
             'email' => $this->email,
             'password' => Hash::make($this->password),
         ]);
-        session()->flash('message', 'User succefully create 😃');
+         Alert::toast('User succefully created!','success');
         return redirect()->route('login');
     }
 
-    public function render()
-    {
-        return view('livewire.register');
-    }
+  
 }
