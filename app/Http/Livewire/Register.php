@@ -34,6 +34,7 @@ class Register extends Component
 
     public function regiserFormSubmit()
     {
+       
         $this->validate();
 
         User::create([
@@ -41,6 +42,7 @@ class Register extends Component
             'email' => $this->email,
             'password' => Hash::make($this->password),
         ]);
+        
          Alert::toast('User succefully created!','success');
         return redirect()->route('login');
     }

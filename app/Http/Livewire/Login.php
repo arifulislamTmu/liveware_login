@@ -29,7 +29,7 @@ class Login extends Component
     public function loginFormSubmit()
     {
        $this->validate();
-
+      
        if(Auth::attempt(['email'=>$this->email,'password'=>$this->password])){
         \Alert::toast('User succefully created!','success');
         $this->email="";
